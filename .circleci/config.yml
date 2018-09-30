@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+    - image: node:8.11.3
+    working_directory: /home/ubuntu/react
+    steps:
+    - checkout
+    - run: mkdir -p /home/ubuntu/react/artifacts
+    - run: npm install
+    - run: npm test
+    - store_artifacts:
+        path: /home/ubuntu/cci-demo-react/artifacts
